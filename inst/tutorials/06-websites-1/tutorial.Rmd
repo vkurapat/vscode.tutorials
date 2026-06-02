@@ -216,6 +216,8 @@ question_text(NULL,
 
 These lines provide metadata about the website and its organization.
 
+<!-- VK: Only showing output in the expected answer. Not command + output. -->
+
 ````
 website:
   title: "A New Website"
@@ -251,6 +253,8 @@ question_text(NULL,
 ### 
 
 These lines provide formatting information about the pages of the website. 
+
+<!-- VK: Only showing output in the expected answer. Not command + output. -->
 
 ````
 format:
@@ -606,7 +610,6 @@ https://your-codespace-name-7193.app.github.dev/
 The website is being "hosted" inside your Codespace container and forwarded to your browser by GitHub. It is not publicly available on the web.
 
 ### Exercise 9
-
 The advantage of using `quarto preview` is that the website is automatically updated whenever you edit and save the underlying QMD file. Try it by changing the `about.qmd` file, replacing "About this site" with your name. Save the file. 
 
 At the Terminal, you should see a new message. Copy and paste it here.
@@ -666,6 +669,16 @@ question_text(NULL,
 ### 
 
 Your answer should look like this, except with your name instead of mine!
+
+<!-- VK: When copy/pasting the entire HTML screen, "Home" and "About" could also appear in the output.
+
+A New Website
+
+Home
+About
+
+About
+Var Kurapati -->
 
 ````
 A New Website
