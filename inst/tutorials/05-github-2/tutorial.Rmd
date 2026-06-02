@@ -196,6 +196,8 @@ question_text(NULL,
 
 ###
 
+<!-- VK: Are the first three lines necessary in the output? I only copy/pasted everything past "^C". -->
+
 ````
 Watching files for changes
 Browse at http://localhost:5456/
@@ -417,9 +419,9 @@ DK: When we use this, the code seems to run, trying to print out the penguins da
 {"columns":[{"label":["species"],"name":[1],"type":["fct"],"align":["left"]},{"l
 ...
 
-Not sure about the cause.
+Not sure about the cause. -->
 
-````
+<pre><code>
 R 4.4.3> tutorial.helpers::show_file("quarto-1.qmd")
 ---
 title: "Quarto 1"
@@ -438,7 +440,7 @@ library(palmerpenguins)
 #| echo: false
 penguins
 ```
-```` -->
+</code></pre> 
 
 ###
 
