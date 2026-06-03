@@ -161,6 +161,8 @@ The `.quarto` directory does not yet exist because we haven't rendered any of ou
 
 ### Exercise 5
 
+<!-- VK: I'm not sure why, but there was no R terminal loaded into my codespace. I used "cat _quarto.yml" instead. -->
+
 In the R Terminal, run:
 
 ````
@@ -642,6 +644,8 @@ Because this is a Quarto website project, the format for all the `qmd` files is 
 Create a new code chunk in `index.qmd` and load the **tidyverse** package. Save the file.
 
 In the R Terminal, run:
+
+<!-- VK: I'm not sure why, but there was no R terminal loaded into my codespace. I used "cat index.qmd" instead. -->
 
 ````
 show_file("index.qmd", chunk = "Last")
