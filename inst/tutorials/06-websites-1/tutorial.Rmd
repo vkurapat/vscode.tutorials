@@ -310,10 +310,6 @@ Note that the `title` (`"A New Website"`) in `_quarto.yml` is independent of the
 
 If you skip the title prompt titles will be set to `.`.
 
-<!-- DK: Fix to show the correct answer. Note that, in other scenarios, the automatiocally generated .gitignore file might be different, only including /.quarto/, for example. -->
-
-<!-- HK: Exercise 5 expected answer shows only one line in .gitignore: "/.quarto/" but when students actually run show_file(".gitignore") they get two lines: "/.quarto/" AND "**/*.quarto_ipynb". The second line is missing from the expected answer. This could confuse students into thinking their output is wrong when it is actually correct. The expected answer needs to be updated to include both lines. -->
-
 ### Exercise 5
 
 In the R Terminal, run:
@@ -339,12 +335,15 @@ question_text(NULL,
 ```
 > show_file(".gitignore")
 /.quarto/
+**/*.quarto_ipynb
 >
 ```
 
 The leading `/` in `/.quarto/` escapes the `.`. In other words, we need the leading `/` if we want to ignore the files in a dotted directory.
 
 In fact, the `.quarto` directory does not yet exist. But the `quarto create project` command wanted to ensure that, once it does, Git would ignore it and its contents.
+
+Sometimes we create a .gitignore by hand — like when we manually add _site to tell Git to ignore our rendered website files. Other times, a program creates or modifies the .gitignore for us. For example, when you run quarto create project website ., Quarto automatically adds /.quarto/ and **/*.quarto_ipynb to the file. The **/*.quarto_ipynb pattern refers to temporary Jupyter notebook files that Quarto creates internally — these never need to be tracked by Git.
 
 ### Exercise 6
 
@@ -493,6 +492,7 @@ question_text(NULL,
 ````
 > show_file(".gitignore")
 /.quarto/
+**/*.quarto_ipynb
 _site
 >
 ````

@@ -90,7 +90,7 @@ There are three main ways to interact with AI: a *chat interface* (like gemini.g
 
 ### Exercise 3
 
-At the Terminal, run `pwd`, then `ls -a`. CP/CR.
+At the Terminal, run `pwd`. CP/CR.
 
 ```{r introduction-3}
 question_text(NULL,
@@ -147,7 +147,7 @@ The [Gemini CLI](https://github.com/google-gemini/gemini-cli) is a free, open AI
 
 ### Exercise 1
 
-Start the Gemini CLI by running `gemini` in the bash terminal. First it will ask you if you wish to connect your Codespace to Gemini. Press `y` to allow it. Next, it will ask whether you trust the current working directory --- again, press `y`. 
+Start the Gemini CLI by running `gemini` in the bash Terminal. First it will ask you if you wish to connect your Codespace to Gemini. Press `y` to allow it. Next, it will ask whether you trust the current working directory --- again, press `y`. 
 
 CP/CR the first several lines of terminal output --- enough to show the authentication prompt and the `>` prompt that appears after you successfully log in.
 
@@ -205,7 +205,9 @@ This uses [OAuth 2.0](https://oauth.net/2/), the same standard behind "Sign in w
 
 You are now inside the Gemini CLI interactive session. The `>` prompt means Gemini is waiting for your input. Type `/help` and press `Enter` to see the list of available commands.
 
-CP/CR the output.
+CP/CR.
+
+<!-- HK: The actual /help output has dozens more commands than the expected answer shows. The output will vary depending on the Gemini CLI version. -->
 
 ```{r gemini-cli-3}
 question_text(NULL,
@@ -231,9 +233,11 @@ Available commands:
   /stats model       Show model token limits and current usage
   /clear             Clear the current conversation history
   /chat              List and restore saved chats
-
+...
 >
 ````
+
+Note that your output will likely be longer than what is shown here, as the Gemini CLI adds new commands regularly.
 
 ###
 
@@ -262,6 +266,8 @@ Current model: gemini-2.5-pro
 >
 ````
 
+You may see something different here depending on your Gemini CLI version — that's fine, don't worry about it.
+
 ###
 
 The Gemini model family has several tiers: **Pro** for complex reasoning and coding tasks, **Flash** for speed and lower usage. You can switch mid-session with `/model model-name` if you want to save your daily limit for simpler work or use a more powerful model.
@@ -280,8 +286,8 @@ Gemini will display a **tool authorization prompt** before running commands. It 
 include_graphics("images/gemini-CLI-git-permission.png")
 ```
 
+Press `1` or hit enter where it says allow once to allow the command to run. You could press `2` to allow Gemini to run the same command without asking again in this session. CP/CR the authorization prompt and Gemini's response.
 
-Press `1` to allow the command to run. You could press `2` to allow Gemini to run the same command without asking again in this session. CP/CR the authorization prompt and Gemini's response.
 
 ```{r gemini-cli-5}
 question_text(NULL,
@@ -468,8 +474,7 @@ When Gemini adds a plot and re-renders, two things happen automatically: Quarto 
 Ask Gemini to create a `.gitignore` file suitable for a Quarto R project. Type something like:
 
 ```
-Create a .gitignore file for a Quarto R project in VS Code. Include patterns for Quarto output directories.
-```
+Create a .gitignore file for a Quarto R project. Include patterns for Quarto cache and build directories, but do NOT ignore .html files.```
 
 This time, Gemini will ask permission to **write a file** rather than run a command. Press `y` to authorize it. CP/CR the tool authorization prompt and Gemini's summary of what it created.
 
@@ -593,7 +598,7 @@ Ask Gemini to check the Git status and explain what the output means:
 Run git status and explain what each part of the output means.
 ```
 
-Press `y` to allow the shell command. CP/CR the full response including Gemini's explanation.
+Press `y`, 1, or hit Enter on allow once to allow the shell command. CP/CR the full response including Gemini's explanation.
 
 ```{r git-with-gemini-1}
 question_text(NULL,
@@ -641,6 +646,8 @@ Here's what this means:
 
 `git status` shows your branch, **staged** changes (added to the next commit), and **untracked** files (noticed by Git but not yet included). Smart commit in `codespace-starter` handles staging automatically --- just press the "Commit" button.
 
+You may notice that `analysis.html` does not appear in your `git status` output. This can happen if the `.gitignore` Gemini created includes `*.html`, which tells Git to ignore all HTML files. If this happens, you can use `git add -f analysis.html` to force Git to track it anyway.
+
 ### Exercise 2
 
 Ask Gemini to explain the difference between `git add` and `git commit`, and to provide the exact command to commit all three files with a good message:
@@ -677,7 +684,7 @@ The two-step design lets you choose exactly which files go into each commit --- 
 
 Open the Source Control sidebar (the branch icon in the Activity Bar). You should see `.gitignore`, `analysis.qmd`, and `analysis.html` listed as changes. Type a commit message in the message box at the top, then click the **Commit** button. Because smart commit is enabled in the devcontainer, clicking Commit will stage and commit all changes in one step --- no `git add` required.
 
-Then, in a separate bash terminal, run:
+Then, in a separate bash Terminal, run:
 
 ```
 git log --oneline
@@ -814,7 +821,7 @@ This tutorial introduced the [Gemini CLI](https://github.com/google-gemini/gemin
 
 ### Exercise 1
 
-Quit Gemini with `/quit` if you haven't already. From the bash terminal, run `quarto render analysis.qmd` to regenerate the HTML. Then, in the R Terminal, run:
+Quit Gemini with `/quit` if you haven't already. From the bash Terminal, run `quarto render analysis.qmd` to regenerate the HTML. Then, in the R Terminal, run:
 
 ```
 tutorial.helpers::show_file("analysis.qmd")
@@ -837,7 +844,7 @@ Your answer should show the full contents of `analysis.qmd`, including a YAML he
 
 ### Exercise 2
 
-Publish your rendered QMD to GitHub Pages. In the bash terminal, run:
+Publish your rendered QMD to GitHub Pages. In the bash Terminal, run:
 
 ```
 quarto publish gh-pages analysis.qmd

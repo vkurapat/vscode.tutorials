@@ -138,8 +138,6 @@ Note that a `.gitignore` file has already been created for you. Quarto knows tha
 
 From the Terminal, run `cat .gitignore`. CP/CR.
 
-<!-- HK: The expected answer only shows "/.quarto/" but when I ran this I also got "**/*.quarto_ipynb" as a second line. Might want to update the expected answer so students don't think their output is wrong! -->
-
 ```{r website-1-4}
 question_text(NULL,
 	answer(NULL, correct = TRUE),
@@ -154,10 +152,13 @@ question_text(NULL,
 ````
 @ppbds-student ➜ /workspaces/website-1 $ cat .gitignore
 /.quarto/
+**/*.quarto_ipynb
 @ppbds-student ➜ /workspaces/website-1 $ 
 ````
 
 The `.quarto` directory does not yet exist because we haven't rendered any of our QMD files yet. But when we do, we don't want any of the junk in that file to be backed up with Git.
+
+Sometimes we create a `.gitignore` by hand — like when we manually add `_site` to tell Git to ignore our rendered website files. Other times, a program creates or modifies the `.gitignore` for us. For example, when you run `quarto create project website .`, Quarto automatically adds `/.quarto/` and `**/*.quarto_ipynb` to the file. The `**/*.quarto_ipynb` pattern refers to temporary Jupyter notebook files that Quarto creates internally — these never need to be tracked by Git.
 
 ### Exercise 5
 
@@ -446,7 +447,7 @@ question_text(NULL,
 ### 
 
 ````
-https://davidkane9.github.io/website-1/
+https://ppbds-student.github.io/website-1/
 ````
 
 ###
@@ -606,6 +607,7 @@ question_text(NULL,
 ````
 @ppbds-student ➜ /workspaces/website-2 $ cat .gitignore
 /.quarto/
+**/*.quarto_ipynb
 _site
 @ppbds-student ➜ /workspaces/website-2 $ 
 ````
@@ -845,7 +847,7 @@ question_text(NULL,
 Your answer should look like this, but with your username instead of mine.
 
 ````
-https://davidkane9.github.io/website-2/
+https://ppbds-student.github.io/website-2/
 ````
 
 Keep track of the three versions of the website. The QMD files in the project directory are the source — always make changes here. The rendered HTML files in `_site` are what you preview locally; never edit them directly. The published website on GitHub is what the world sees.
@@ -1535,7 +1537,7 @@ question_text(NULL,
 ### 
 
 ````
-https://davidkane9.github.io/website-3/
+https://ppbds-student.github.io/website-3/
 ````
 
 With luck, you have done these steps enough times that, going forward, we can just tell you to set up a website, and you will know what to do without being told.
